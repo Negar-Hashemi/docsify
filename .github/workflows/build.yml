@@ -33,6 +33,10 @@ jobs:
           npm install
           npx playwright install 
 
+      - name: Install palywright
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo npx playwright install-deps
+
 
       - name: Testing on OS (${{ matrix.os }}) with Node.js (version ${{ matrix.node-version }}) attempt ${{ matrix.attempt }}
         run: |
